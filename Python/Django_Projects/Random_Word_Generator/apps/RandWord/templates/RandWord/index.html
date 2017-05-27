@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generate a Random Word</title>
+</head>
+<style>
+#disp{
+    size: 100%;
+    text-align: center;
+    font-size: 28pt;
+    color: magenta;
+}
+</style>
+<body>
+    <div id='disp'>
+    <p>This is attempt #: {{request.session.count}}</p>
+    <form action="/gen_rand_word" method="post">
+        {% csrf_token %}
+        <p>{{request.session.word}}</p>
+        <input type="submit" value="Generate Random Word">
+    </form>
+    <form action="/reset">
+    <input type="submit" value='Reset Count'>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    {% load staticfiles %}
+    <link rel="icon" href="{% static 'Play_Game/images/gold-ninja.jpg'%}">
+
+    <style>
+        #pitboss {
+            {{request.session.boss}}
+        }
+        #goldF{
+            outline: 2px solid gold;
+            display: inline;
+            padding: 10px;
+        }
+        #pitboss{
+            padding: 10px;
+        }
+    </style>
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+    <p id = 'goldF'>Your Gold: {{request.session.total_gold}} {{request.session.MESSAGE}} </p>
+    <img src="{% static 'Play_Game/images/pit_boss.jpg'%}" id='pitboss' alt="">
+
+    <form action="/process_money" method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="farm">
+        <p>Farm</p>
+        <p>(earns 10-20 gold)</p>
+        <input type="submit" value='Find Gold!' />
+    </form>
+
+    <form action="/process_money" method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="cave">
+        <p>Cave</p>
+        <p>(earns 5-10 gold)</p>
+        <input type="submit" value='Find Gold!' />
+    </form>
+
+    <form action="/process_money" method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="house">
+        <p>House</p>
+        <p>(earns 2-5 gold)</p>
+        <input type="submit" value='Find Gold!' />
+    </form>
+
+    <form action="/process_money" method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="casino">
+        <p>Casino</p>
+        <p>(earns OR takes 0-50 gold)</p>
+        <input type="submit" value='Find Gold!' />
+    </form>
+    <form action="/process_money" method='post'>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="reset">
+        <p>RESET CUS YOU FAILED</p>
+        <input type="submit" value='RESET!' />
+    </form>
+</body>
+
+</html>

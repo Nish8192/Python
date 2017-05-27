@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit an Existing Product</title>
+</head>
+<body>
+    <h1>Edit {{products.name}}</h1>
+    <form action="/edit/{{products.id}}/update" method="post">
+    {% csrf_token %}
+    <p>Name: </p>
+    <input type="text" name = 'product_name' value = '{{products.name}}'>
+    <p>Description: </p>
+    <textarea name = 'product_desc' cols="50" rows="5">{{products.description}}</textarea>
+    <p>Price: </p>
+    <p><input type="text" name = 'product_price' value = '{{products.price}}'></p>
+
+    <input type="submit" value='Update Product'>
+    </form>
+</body>
+</html>

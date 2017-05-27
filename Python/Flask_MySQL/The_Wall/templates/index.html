@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Wall</title>
+</head>
+<body>
+    <div id = 'login'>
+        <form action="/login" method="post" id = 'login_form'>
+            <p>
+                User Name: <input type="text" name='user_name' required='true' />
+            </p>
+            <p>
+                Password: <input type="password" name='pass' required='true' />
+            </p>
+            <input type="submit" value='Login' />
+        </form>
+        {{session['result']}}
+    </div>
+    <div id = 'register'>
+        <form action="/register" method="get" id = 'register_new_user'>
+            <input type="submit" value='Create New User' />
+        </form>
+    </div>
+</body>
+</html>

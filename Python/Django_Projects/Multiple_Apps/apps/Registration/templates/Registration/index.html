@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Users</title>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-6uc3{font-weight:bold;background-color:#000000;color:#ffffff;vertical-align:top}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+</head>
+
+<body>
+    <h1>Register Users to Classes</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    <form action="{% url 'Registration:register' %}" method="post">
+        {% csrf_token %}
+        <select name="userToRegister">
+        {% for user in users %}
+        <option value="{{user.id}}">{{user.first_name}}</option>
+        {% endfor %}
+    </select>
+
+        <select name="courseToRegister">
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.name}}</option>
+        {% endfor %}
+    </select>
+        <input type="submit" value='Register'>
+    </form>
+    <table class="tg">
+      <tr>
+        <th class="tg-6uc3">Course</th>
+        <th class="tg-6uc3">Course Title</th>
+        <th class="tg-6uc3"># of Registered Users</th>
+      </tr>
+
+      {% for register in registrations %}
+      <tr>
+        <td class="tg-yw4l">{{register.id}}</td>
+        <td class="tg-yw4l">{{register.name}}</td>
+        <td class="tg-yw4l">{{register.num_users}}</td>
+      </tr>
+      {% endfor %}
+
+      <!-- {% for course in courses %}
+      <tr>
+        <td class="tg-yw4l">{{course.id}}</td>
+        <td class="tg-yw4l">{{course.name}}</td>
+        <td class="tg-yw4l"></td>
+      </tr>
+      {% endfor %} -->
+    </table>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>img test</title>
+  </head>
+  <body>
+    <h1>lets see what we can do!</h1>
+    {% for u in user %}
+    <img src = "../media/{{ u.avatar }}" />
+    {% endfor %}
+    {% block content %}
+    <form action="{% url 'img:index' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="submit" />
+    </form>
+    {% endblock %}
+  </form>
+  </body>
+</html>

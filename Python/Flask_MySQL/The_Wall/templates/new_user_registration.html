@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register a New User</title>
+</head>
+<style>
+#error{
+    color: red;
+    font-size: 36pt;
+}
+</style>
+
+<body>
+    <div id = 'new_user_creation'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p id = 'error'>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/add_user" method="post" id = 'add_user'>
+            <p>
+                What's Your First Name? <input type="text" name='first_name' required='true' />
+            </p>
+            <p>
+                What's Your Last Name? <input type="text" name='last_name' required='true' />
+            </p>
+            <p>
+                Enter Your Email Address: <input type="text" name='user_email' required='true' />
+            </p>
+            <p>
+                Select a Password: <input type="password" name='password' required='true' />
+            </p>
+            <p>
+                Confirm Password: <input type="password" name='pass_con' required='true' />
+            </p>
+            <input type="submit" value='Create New User' />
+        </form>
+</body>
+
+</html>

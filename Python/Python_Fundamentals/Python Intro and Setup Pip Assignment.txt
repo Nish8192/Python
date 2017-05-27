@@ -1,0 +1,29 @@
+1. 'Successfully installed Django-1.10.5'
+
+2. Django (1.10.5)
+pip (9.0.1)
+setuptools (28.8.0)
+
+3. Requirement already satisfied
+
+4. The difference is that 'pip freeze' only shows Django while 'pip list' shows other packages that pip itself depends on.
+
+5. 'pip freeze > requirements.txt' created a requirements.txt file on the desktop that only had 'Django==1.10.5' inside
+(guessing these are the requirements for pip to run in a directory'
+
+6. -
+
+7. $ pip show Django
+Name: Django
+Version: 1.10.5
+Summary: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+Home-page: http://www.djangoproject.com/
+Author: Django Software Foundation
+Author-email: foundation@djangoproject.com
+License: BSD
+Location: c:\users\nishant\appdata\local\programs\python\python36-32\lib\site-packages
+Requires:
+
+
+8. Produces very long output in the terminal window. Looking at it, I presume the command lists commands associated with a Flask plugin
+used with Python.

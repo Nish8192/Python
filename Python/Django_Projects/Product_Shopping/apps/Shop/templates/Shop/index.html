@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products!</title>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-6uc3{font-weight:bold;background-color:#000000;color:#ffffff;vertical-align:top}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+</head>
+<body>
+    <h1>View all the products offered for sale by our company!</h1>
+    <table class="tg">
+  <tr>
+    <th class="tg-6uc3">Name</th>
+    <th class="tg-6uc3">Description</th>
+    <th class="tg-6uc3">Price</th>
+    <th class="tg-6uc3">Actions</th>
+  </tr>
+  {% for product in products %}
+  <tr>
+    <td class="tg-yw4l">{{product.name}}</td>
+    <td class="tg-yw4l">{{product.description}}</td>
+    <td class="tg-yw4l">{{product.price}}</td>
+    <td class="tg-yw4l"><a href="view/{{product.id}}">View</a> / <a href="edit/{{product.id}}">Edit</a> / <a href="remove/{{product.id}}">Remove</a></td>
+  </tr>
+  {% endfor %}
+</table>
+ <a href="add_product"> Add a New Product</a>
+</body>
+</html>
